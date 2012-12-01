@@ -11,7 +11,7 @@
     }
 
     $("#page-container > .content-main > .stream-container").on(
-        "hover", ".content", function(event) {
+        "hover", ".tweet", function(event) {
             var contentElement = $(this);
             if (!contentElement.hasClass("wic-mining-processed")) {
                 contentElement.addClass("wic-mining-processed");
@@ -24,7 +24,6 @@
                         .click(function() {
                             startCalendarService(textElement.text());
                         })
-                        // .end()
                         .appendTo(footerElement);
                 }
             }
