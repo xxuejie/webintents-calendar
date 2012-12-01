@@ -1,0 +1,10 @@
+/* CSS file for twitter integration */
+
+.wic-calendar-btn {
+    display: none;
+    float: right;
+}
+
+.wic-mining-processed:hover .wic-calendar-btn {
+    display: inline;
+}
