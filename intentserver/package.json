@@ -1,0 +1,22 @@
+{
+    "name": "webintents-calendar",
+    "version": "0.1.0",
+    "author": "Xuejie Xiao <xxuejie@gmail.com>",
+    "description": "Web Intents enabled Calendar Server",
+    "contributors": [
+        {
+            "name": "Xuejie Xiao",
+            "email": "xxuejie@gmail.com"
+        }
+    ],
+    "engines" : {
+        "node": "0.8.x",
+        "npm": "1.1.x"
+    },
+    "dependencies": {
+        "docpad": "6.x",
+        "docpad-plugin-handlebars": "2.1.x",
+        "docpad-plugin-livereload": "2.1.x"
+    },
+    "main": "node_modules/docpad/bin/docpad-server"
+}
