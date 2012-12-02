@@ -1,0 +1,42 @@
+---
+title: "Create a Calendar Event"
+url: "intent"
+layout: "default"
+---
+
+<script src="scripts/gapi-init.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=load"></script>
+<script src="scripts/intent.js"></script>
+<script src="js/mobiscroll-2.2.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mobiscroll-2.2.custom.min.css" />
+<link rel="stylesheet" type="text/css" href="css/intent.css" />
+
+<h1>Create a Calendar Event:</h1>
+
+<ul class="calendar-editor">
+  <li>
+    <label for="title">Title: </label>
+    <input id="calendar-title" name="title" />
+  </li>
+  <li>
+    <label for="starttime">Start Time: </label>
+    <input id="calendar-start" name="starttime" />
+  </li>
+  <li>
+    <label for="endtime">End Time: </label>
+    <input id="calendar-end" name="endtime" />
+  </li>
+  <li>
+    <label for="place">Place: </label>
+    <input id="calendar-place" name="place" />
+  </li>
+  <li>
+    <label for="description">Description: </label>
+    <textarea id="calendar-description" name="description"></textarea>
+  </li>
+</ul>
+
+<div>
+  <a href="#" id="submit">Submit</a>
+  <span id="alert"></span>
+</div>

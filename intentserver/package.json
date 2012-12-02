@@ -16,7 +16,8 @@
     "dependencies": {
         "docpad": "6.x",
         "docpad-plugin-handlebars": "2.1.x",
-        "docpad-plugin-livereload": "2.1.x"
+        "docpad-plugin-livereload": "2.1.x",
+        "docpad-plugin-coffee": "2.0.x"
     },
     "main": "node_modules/docpad/bin/docpad-server"
 }

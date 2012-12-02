@@ -1,8 +1,24 @@
 ---
-title: "Handlebars index page"
+title: "Web Intents Calendar Service"
 layout: "default"
 ---
 
-<p>
-  Hello this is the first page!
-</p>
+<script src="scripts/gapi-init.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=load"></script>
+<script src="scripts/index.js"></script>
+<script src="js/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+<div id="wrapper">
+
+  <h1>Added Event List</h1>
+
+  <div id="waiting">
+    <div>
+      Please Wait...
+    </div>
+  </div>
+  <div id="container">
+  </div>
+
+</div>
