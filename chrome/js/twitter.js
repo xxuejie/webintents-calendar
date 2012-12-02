@@ -1,13 +1,23 @@
 // Content script for twitter
 (function() {
-    function startCalendarService(tweet) {
-        var result = wic.mining.isEvent(tweet) || {};
-        var resultTime = result.time || "no time";
-        var resultPlace = result.place || "no place";
+    function getMiningText(tweet) {
+        var miningResult = wic.mining.isEvent(tweet) || {};
+        var result = "";
 
-        // TODO: implement this
-        alert("Start calendar intent service with time: " + resultTime
-              + " and place: " + resultPlace);
+        if (miningResult.time) {
+            result += "time=" + miningResult.time;
+        }
+
+        if (miningResult.place) {
+            // For only two fields, we simply check like this.
+            // If we have more fields, we may think of refactoring this.
+            if (result) {
+                result += "&";
+            }
+            result += "place=" + miningResult.place;
+        }
+
+        return result;
     }
 
     $("#page-container > .content-main > .stream-container").on(
@@ -17,12 +27,15 @@
                 contentElement.addClass("wic-mining-processed");
                 var footerElement = contentElement.find(".stream-item-footer");
                 var textElement = contentElement.find("p.js-tweet-text");
+                var url = "http://localhost:9778/intent.html?" +
+                        getMiningText(textElement.text());
                 if (footerElement) {
                     $("<a/>")
                         .addClass("wic-calendar-btn")
                         .text("Calendar!")
-                        .click(function() {
-                            startCalendarService(textElement.text());
+                        .attr("href", "#")
+                        .on('click', function(event) {
+                            $.popupWindow(url);
                         })
                         .appendTo(footerElement);
                 }
