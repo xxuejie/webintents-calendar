@@ -18,8 +18,11 @@ create_new_node = (i) ->
         "<div><span>End Time: </span><p>" + get_time(i.end) + "</p></div>" +
         "<div><span>Place: </span><p>" + get_text(i.location) + "</p></div>" +
         "<div><span>Description: </span><p>" + get_text(i.description) + "</p></div>" +
-        "</div>"
+        "<div class='share-twitter share-btn'><a href='#' /></div>" +
+        "<div class='share-facebook share-btn'><a href='#' /></div></div>"
     n.html(h)
+    share_text = "I scheduled a '" + get_text(i.summary) + "' event, wanna join me?"
+    n.find(".share-btn > a").attr('text', share_text)
     n
 
 filter_item = (i) ->
@@ -39,9 +42,13 @@ add_calendar_results = (items) ->
             create_new_node(i).appendTo(container)
 
     $(".item .title").click(() ->
-        $(this).siblings(".content").slideToggle(1000))
+        $(this).siblings(".content").slideToggle(600))
+    $(".share-twitter > a").on('click', (event) ->
+        twitter_url = "https://twitter.com/intent/tweet?text=" +
+            $(this).attr('text') + "&hashtags=WIC"
+        $.popupWindow(twitter_url))
 
-    $("#waiting").hide(1000)
+    $("#waiting").hide()
 
 $ ->
     $("#waiting").show()
