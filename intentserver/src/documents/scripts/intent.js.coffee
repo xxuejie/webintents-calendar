@@ -32,6 +32,7 @@ $ ->
     setTimePicker("calendar-end", t)
 
     $("#calendar-place").val(placeText)
+    $("#calendar-title").val(getParameterByName("title"))
 
     $("#submit").click(() ->
         body = {

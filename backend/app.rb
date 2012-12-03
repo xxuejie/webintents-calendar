@@ -9,7 +9,7 @@ def generate_time occurrence
   else
     d = DateTime.now
   end
-  d.strftime('%Y-%m-%dT%H:%M:%SZ')
+  d.rfc3339
 end
 
 post '/parse' do

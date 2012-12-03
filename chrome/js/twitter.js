@@ -1,28 +1,37 @@
 // Content script for twitter
 (function() {
-    function getMiningText(tweet, key) {
-        var miningResult = wic.mining.isEvent(tweet) || {};
-        var result = "";
+    function getMiningText(tweet, key, callback) {
+        wic.mining.isEvent(tweet, function(miningResult) {
+            miningResult = miningResult || {};
+            var result = "";
 
-        if (miningResult.time) {
-            result += "time=" + miningResult.time;
-        }
+            if (miningResult.title) {
+                result += "title=" + miningResult.title;
+            }
 
-        if (miningResult.place) {
-            // For only two fields, we simply check like this.
-            // If we have more fields, we may think of refactoring this.
+            if (miningResult.time) {
+                // For only two fields, we simply check like this.
+                // If we have more fields, we may think of refactoring this.
+                if (result) {
+                    result += "&";
+                }
+                result += "time=" + miningResult.time;
+            }
+
+            if (miningResult.place) {
+                if (result) {
+                    result += "&";
+                }
+                result += "place=" + miningResult.place;
+            }
+
             if (result) {
                 result += "&";
             }
-            result += "place=" + miningResult.place;
-        }
+            result += "key=" + key;
 
-        if (result) {
-            result += "&";
-        }
-        result += "key=" + key;
-
-        return result;
+            callback(result);
+        });
     }
 
     $("#page-container > .content-main > .stream-container").on(
@@ -41,7 +50,9 @@
                         .on('click', function(event) {
                             chrome.extension.sendMessage({ text: textElement.text()},
                                                          function(resp) {
-                                                             $.popupWindow(url + getMiningText(textElement.text(), resp.id));
+                                                             getMiningText(textElement.text(), resp.id, function(queryString) {
+                                                                 $.popupWindow(url + queryString);
+                                                             });
                                                          });
                         })
                         .appendTo(footerElement);

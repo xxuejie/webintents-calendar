@@ -9,10 +9,17 @@ wic.mining = {};
  * Otherwise an object containing possible time and place field
  * will be returned.
  */
-wic.mining.isEvent = function(text) {
-    // TODO: implement this
-    return { "time": new Date().toJSON(),
-             "place": "Mars" };
+wic.mining.isEvent = function(text, callback) {
+    text = text.trim();
+    var URL = "http://nameless-refuge-7929.herokuapp.com/parse";
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", URL, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send(text);
 };
 
 wic.mining.process = function(text, title, startDate, endDate, place, description) {

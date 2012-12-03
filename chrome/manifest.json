@@ -3,7 +3,8 @@
     "version": "0.1",
     "manifest_version": 2,
     "permissions": [
-        "storage"
+        "storage",
+        "http://nameless-refuge-7929.herokuapp.com/"
     ],
     "description": "Web Intents enabled Calendar Service, this serves as the client side plugin for connecting the intent server.",
 
