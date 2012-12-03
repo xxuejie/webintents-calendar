@@ -2,7 +2,4 @@ source :rubygems
 
 gem 'sinatra'
 gem 'nickel'
-
-group :development do
-  gem 'heroku'
-end
+gem 'thin'
