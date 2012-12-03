@@ -21,6 +21,19 @@
             "css": [
                 "css/twitter.css"
             ]
+        },
+        {
+            "matches": ["*://facebook.com/*", "*://www.facebook.com/*"],
+            "js": [
+                "js/jquery-1.8.3.min.js",
+                "js/jquery.popupwindow.js",
+                "js/init.js",
+                "js/mining.js",
+                "js/facebook.js"
+            ],
+            "css": [
+                "css/facebook.css"
+            ]
         }
     ]
 }
