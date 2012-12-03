@@ -68,6 +68,7 @@ input {
 .content {
     display: none;
     padding: 15px 20px 35px;
+    position: relative;
 }
 
 .content span {
@@ -81,19 +82,22 @@ input {
 }
 
 .share-btn {
-    float:right;
     width: 32px;
     height: 32px;
     cursor: pointer;
     background-position-y: 0;
+    position: absolute;
+    bottom: 10px;
 }
 
 .share-twitter {
-    background: url('../images/twitter.png') no-repeat
+    background: url('../images/twitter.png') no-repeat;
+    right: 15px;
 }
 
 .share-facebook {
-    background: url('../images/facebook.png') no-repeat
+    background: url('../images/facebook.png') no-repeat;
+    right: 50px;
 }
 
 .share-btn > a {
