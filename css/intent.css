@@ -1,0 +1,74 @@
+body {
+    font-family: 'Kite One', sans-serif;
+}
+
+h1 {
+    font-family: 'Finger Paint', cursive;
+}
+
+input {
+    font-family: inherit;
+}
+
+.calendar-editor {
+    list-style-type: none;
+    padding: 0 5px;
+}
+
+.calendar-editor li {
+    padding: 5px;
+}
+
+.calendar-editor label {
+    display: inline-block;
+    font-weight: bold;
+    width: 100px;
+    margin-right: 20px;
+    text-align: right;
+    vertical-align: top;
+    padding-top: 5px;
+}
+
+.calendar-editor input {
+    width: 300px;
+    font-size: 1.1em;
+}
+
+.calendar-editor textarea {
+    width: 300px;
+    height: 100px;
+    font-size: 1em;
+}
+
+.calendar-editor #calendar-title {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+#submit {
+    display: inline-block;
+    background-color: #EEE;
+    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 200px;
+    text-decoration: none;
+    color: #999;
+}
+
+#alert {
+    display: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-left: 20px;
+}
+
+#alert.error {
+    display: inline-block;
+    color: red;
+}
+
+#alert.ok {
+    display: inline-block;
+    color: #0D0;
+}

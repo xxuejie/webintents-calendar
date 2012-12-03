@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kite One', sans-serif;
+}
+
+h1 {
+    font-family: 'Finger Paint', cursive;
+}
+
+input {
+    font-family: inherit;
+}
+
+#waiting {
+    width: 160px;
+    height: 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: -20px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 5px #888;
+    background-color: #EEE;
+    background-image: url('../images/icon_loading.gif');
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: 5px;
+}
+
+#waiting > div {
+    padding-left: 45px;
+    padding-top: 10px;
+}
+
+#wrapper {
+    width: 600px;
+    margin: auto
+}
+
+#wrapper h1 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#container {
+    background-color: #eee;
+    border: 2px solid #999;
+    border-radius; 5px;
+}
+
+.item {
+    background: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.item .title {
+    cursor: pointer;
+    text-align: center;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.content {
+    display: none;
+    padding: 15px 20px 35px;
+}
+
+.content span {
+    float: left;
+    width: 150px;
+    text-align: right;
+}
+
+.content p {
+    padding-left: 170px;
+}
+
+.share-btn {
+    float:right;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-position-y: 0;
+}
+
+.share-twitter {
+    background: url('../images/twitter.png') no-repeat
+}
+
+.share-facebook {
+    background: url('../images/facebook.png') no-repeat
+}
+
+.share-btn > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
