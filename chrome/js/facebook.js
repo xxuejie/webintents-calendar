@@ -39,7 +39,7 @@
             contentElement.addClass("wic-mining-processed");
             var footerElement = contentElement.find(".uiStreamFooter");
             var textElement = contentElement.find(".userContent");
-            var url = "http://localhost:9778/intent.html?";
+            var url = "http://still-spire-6176.herokuapp.com/intent.html?";
             if (footerElement) {
                 $("<a/>")
                     .addClass("wic-calendar-btn")
