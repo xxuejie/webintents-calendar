@@ -29,7 +29,7 @@
             }
             result += "key=" + key;
 
-            callback(result);
+            callback(encodeURIComponent(result));
         });
     }
 
