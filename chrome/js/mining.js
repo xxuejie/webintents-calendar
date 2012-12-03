@@ -14,3 +14,14 @@ wic.mining.isEvent = function(text) {
     return { "time": new Date().toJSON(),
              "place": "Mars" };
 };
+
+wic.mining.process = function(text, title, startDate, endDate, place, description) {
+    // TODO: implement this
+    console.log("Received:\n" +
+                "text: " + text + "\n" +
+                "title: " + title + "\n" +
+                "startDate: " + startDate + "\n" +
+                "endDate: " + endDate + "\n" +
+                "place: " + place + "\n" +
+                "description: " + description + "\n");
+}
