@@ -1,5 +1,5 @@
 (function() {
-    function getMiningText(tweet) {
+    function getMiningText(tweet, key) {
         var miningResult = wic.mining.isEvent(tweet) || {};
         var result = "";
 
@@ -16,6 +16,11 @@
             result += "place=" + miningResult.place;
         }
 
+        if (result) {
+            result += "&";
+        }
+        result += "key=" + key;
+
         return result;
     }
     $("#contentArea").on("hover", ".storyContent", function(event) {
@@ -24,15 +29,17 @@
             contentElement.addClass("wic-mining-processed");
             var footerElement = contentElement.find(".uiStreamFooter");
             var textElement = contentElement.find(".userContent");
-            var url = "http://localhost:9778/intent.html?" +
-                    getMiningText(textElement.text());
+            var url = "http://localhost:9778/intent.html?";
             if (footerElement) {
                 $("<a/>")
                     .addClass("wic-calendar-btn")
                     .text("Calendar!")
                     .attr("href", "#")
                     .on('click', function(event) {
-                        $.popupWindow(url);
+                            chrome.extension.sendMessage({ text: textElement.text()},
+                                                         function(resp) {
+                                                             $.popupWindow(url + getMiningText(textElement.text(), resp.id));
+                                                         });
                     })
                     .appendTo(footerElement);
             }
