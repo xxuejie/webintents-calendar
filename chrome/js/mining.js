@@ -17,7 +17,7 @@ wic.mining.isEvent = function(text, callback) {
     xhr.open("POST", URL, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
-            callback(JSON.parse(xhr.responseText));
+            callback(JSON.parse(decodeURIComponent(xhr.responseText)));
         }
     };
     xhr.send(text);

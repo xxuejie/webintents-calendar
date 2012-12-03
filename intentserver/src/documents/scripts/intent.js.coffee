@@ -2,11 +2,11 @@ getParameterByName = (name) ->
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
     regexS = "[\\?&]" + name + "=([^&#]*)"
     regex = new RegExp(regexS)
-    results = regex.exec(window.location.search)
+    results = regex.exec(decodeURIComponent(window.location.search))
     unless results?
         ""
     else
-        decodeURIComponent results[1].replace(/\+/g, " ")
+        results[1]
 
 setTimePicker= (i, t) ->
     picker = $("#" + i)

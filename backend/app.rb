@@ -1,6 +1,7 @@
 require 'nickel'
 require 'json'
 require 'sinatra'
+require 'uri'
 
 def generate_time occurrence
   if occurrence && (sd = occurrence.start_date) && (st = occurrence.start_time)
@@ -18,7 +19,8 @@ post '/parse' do
   if str.empty?
     {}.to_json
   else
-    result = Nickel.parse str
-    {title: result.message, time: generate_time(result.occurrences.first)}.to_json
+    result = Nickel.parse(URI.unescape(str))
+    {title: URI.escape(result.message),
+      time: URI.escape(generate_time(result.occurrences.first))}.to_json
   end
 end
