@@ -11,6 +11,7 @@ wic.mining = {};
  */
 wic.mining.isEvent = function(text, callback) {
     text = text.trim();
+    text = encodeURIComponent(text);
     var URL = "http://nameless-refuge-7929.herokuapp.com/parse";
     var xhr = new XMLHttpRequest();
     xhr.open("POST", URL, true);
