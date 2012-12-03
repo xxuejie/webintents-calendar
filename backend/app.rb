@@ -14,7 +14,11 @@ end
 
 post '/parse' do
   request.body.rewind
-  result = Nickel.parse request.body.read
-
-  {title: result.message, time: generate_time(result.occurrences.first)}.to_json
+  str = request.body.read
+  if str.empty?
+    {}.to_json
+  else
+    result = Nickel.parse str
+    {title: result.message, time: generate_time(result.occurrences.first)}.to_json
+  end
 end
