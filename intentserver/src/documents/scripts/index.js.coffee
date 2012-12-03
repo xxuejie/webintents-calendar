@@ -47,6 +47,12 @@ add_calendar_results = (items) ->
         twitter_url = "https://twitter.com/intent/tweet?text=" +
             $(this).attr('text') + "&hashtags=WIC"
         $.popupWindow(twitter_url))
+    $(".share-facebook > a").on('click', (event) ->
+        window.wic.fb.post_status($(this).attr('text'), (resp) ->
+            if !resp || resp.error
+                alert('Error occured')
+            else
+                alert('Post ID: ' + resp.id)))
 
     $("#waiting").hide()
 
